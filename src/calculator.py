@@ -11,6 +11,16 @@ def subtract(a, b):
     """Subtract b from a"""
     return a - b
 
+def power(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Power requires numeric inputs")
+
+    print(f"Calculating {a} ^ {b}")
+    result = a ** b
+    print(f"Result: {result}")
+    return result
+
+
 def multiply(a, b):
     """Multiply two numbers with input validation and logging."""
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
