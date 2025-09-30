@@ -3,7 +3,7 @@ Unit Tests for Calculator
 Students start with 2 passing tests, then add more
 """
 import pytest
-from src.calculator import add, divide, subtract, multiply
+from src.calculator import add, subtract, multiply, divide
 
 class TestBasicOperations:
     """Test basic arithmetic operations"""
@@ -42,3 +42,20 @@ class TestMultiplyDivideWithValidation:
             divide("10", 2)
 
 # TODO: Students will add TestMultiplyDivide class
+
+class TestMultiplyDivide:
+
+    def test_multiply_basic(self):
+        assert multiply(3, 4) == 12
+        assert multiply(-2, 5) == -10
+        assert multiply(2.5, 2) == 5.0
+
+    def test_divide_basic(self):
+        assert divide(8, 2) == 4
+        assert divide(-9, 3) == -3
+        assert divide(7.5, 2.5) == 3.0
+
+    def test_divide_by_zero(self):
+        import pytest
+        with pytest.raises(ValueError, match="divide .* by zero"):
+            divide(5, 0)
